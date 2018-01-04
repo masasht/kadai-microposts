@@ -1,0 +1,7 @@
+        <div>
+          <% if Like.find_by(user_id: current_user.id, micropost_id: micropost.id) %>
+            <%= link_to "お気に入り解除", like_path(micropost) , method: :delete, class: 'btn btn-primary btn-block' %>
+          <% else %>
+            <%= link_to "お気に入りに登録", likes_path(micropost) , method: :post, class: 'btn btn-primary btn-block'%>
+          <% end %>
+        </div>

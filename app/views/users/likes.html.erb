@@ -1,5 +1,6 @@
 <ul class="media-list">
-  <% microposts.each do |micropost| %>
+  <% @likes.each do |like| %>
+    <% micropost = Micropost.find_by(id: like.micropost_id) %>
     <% user = micropost.user %>
     <li class="media">
       <div class="media-left">
@@ -21,5 +22,4 @@
       </div>
     </li>
   <% end %>
-  <%= paginate microposts %>
 </ul>

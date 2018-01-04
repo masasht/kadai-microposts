@@ -39,9 +39,16 @@ class UsersController < ApplicationController
     counts(@user)
   end
 
+  def likes
+    @user = current_user
+    @likes = Like.where(user_id: @user.id)
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
+
+  
 end
